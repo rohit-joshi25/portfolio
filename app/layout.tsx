@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Rohit's Portfolio",
-  description: " Full-Stack Power with Laravel, Next.js & MERN",
+  description: " Full-Stack Power with Laravel & Next.js ",
 };
 
 export default function RootLayout({

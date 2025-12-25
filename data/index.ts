@@ -9,7 +9,7 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title: "Built a complete Smart School Management System from scratch",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full",
@@ -29,7 +29,7 @@ export const gridItems = [
   },
   {
     id: 3,
-    title: "My tech stack",
+    title: "Tech Stack",
     description: "I constantly try to improve",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -70,42 +70,40 @@ export const gridItems = [
   },
 ];
 
-export const projects = 
-  [
-    {
-      id: 1,
-      title: "The SavantX-Company Portfolio",
-      des: "Showcasing the diverse projects, services, and innovations of SavantX Technologies with a sleek and modern interactive portfolio website.",
-      img: "/p1.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-      link: "/ui.earth.com",
-    },
-    {
-      id: 2,
-      title: "School Management System",
-      des: "An all-in-one digital solution for schools to manage students, staff, attendance, exams, and communication with ease and efficiency.",
-      img: "/p2.svg",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-      link: "/ui.yoom.com",
-    },
-    {
-      id: 3,
-      title: "SavantXtruck",
-      des: "A powerful logistics and fleet management platform designed to optimize dispatch, route planning, driver communication, and delivery tracking.",
-      img: "/p3.svg",
-      iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-      link: "/ui.aiimg.com",
-    },
-    {
-      id: 4,
-      title: "Sansani Express News",
-      des: "A modern digital news platform built for real-time regional news publishing, featuring responsive design, fast loading, and user-friendly content management.",
-      img: "/p4.svg",
-      iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-      link: "/ui.apple.com",
-    },
-  ];
-  
+export const projects = [
+  {
+    id: 1,
+    title: "The SavantX-Company Portfolio",
+    des: "Showcasing the diverse projects, services, and innovations of SavantX Technologies with a sleek and modern interactive portfolio website.",
+    img: "/p1.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
+    link: "/ui.earth.com",
+  },
+  {
+    id: 2,
+    title: "School Management System",
+    des: "An all-in-one digital solution for schools to manage students, staff, attendance, exams, and communication with ease and efficiency.",
+    img: "/p2.svg",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    link: "/ui.yoom.com",
+  },
+  {
+    id: 3,
+    title: "SavantXtruck",
+    des: "A powerful logistics and fleet management platform designed to optimize dispatch, route planning, driver communication, and delivery tracking.",
+    img: "/p3.svg",
+    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
+    link: "/ui.aiimg.com",
+  },
+  {
+    id: 4,
+    title: "Sansani Express News",
+    des: "A modern digital news platform built for real-time regional news publishing, featuring responsive design, fast loading, and user-friendly content management.",
+    img: "/p4.svg",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+    link: "/ui.apple.com",
+  },
+];
 
 export const testimonials = [
   {
