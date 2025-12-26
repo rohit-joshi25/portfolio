@@ -7,7 +7,7 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Rohit's Portfolio",
+  title: "Rohit Joshi | Laravel Full Stack Developer",
   description: " Full-Stack Power with Laravel & Next.js ",
 };
 

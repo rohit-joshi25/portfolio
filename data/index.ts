@@ -2,7 +2,6 @@ export const navItems = [
   // { name: "Home", link: "/" },
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
-  { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -24,8 +23,8 @@ export const gridItems = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-start",
-    img: "",
-    spareImg: "",
+    img: "/bg.png",
+    spareImg: "/b4.svg",
   },
   {
     id: 3,
@@ -34,7 +33,7 @@ export const gridItems = [
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-center",
-    img: "",
+    img: "/bg.png",
     spareImg: "",
   },
   {
@@ -50,8 +49,8 @@ export const gridItems = [
 
   {
     id: 5,
-    title: "Currently building a Manufacturing ERP",
-    description: "The Inside Scoop",
+    title: "E-Auction / Art E-Commerce System (PHP & MySQL)",
+    description: "PHP Backend System",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
     titleClassName: "justify-center md:justify-start lg:justify-center",
@@ -72,13 +71,14 @@ export const gridItems = [
 
 export const projects = [
   {
-    id: 1,
-    title: "The SavantX-Company Portfolio",
-    des: "Showcasing the diverse projects, services, and innovations of SavantX Technologies with a sleek and modern interactive portfolio website.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
+    id: 2,
+    title: "Truckares – Fleet Management Platform",
+    des: "A fleet and logistics management platform developed using Laravel, Livewire, and APIs to manage transportation workflows, vehicle operations, and logistics processes for India-based teams.",
+    img: "/truckares.png",
+    iconLists: ["/laravel.png", "/livewire.png", "/php.png", "/api.svg"],
+    link: "https://in.truckares.com",
   },
+
   {
     id: 2,
     title: "School Management System",
@@ -89,85 +89,19 @@ export const projects = [
   },
   {
     id: 3,
-    title: "SavantXtruck",
-    des: "A powerful logistics and fleet management platform designed to optimize dispatch, route planning, driver communication, and delivery tracking.",
-    img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
+    title: "E-Auction System",
+    des: "PHP backend system",
+    img: "/eauction.jpg",
+    iconLists: ["/php.png", "/mysql.svg"],
+    link: "https://github.com/rohit-joshi25/E-auction-website",
   },
   {
     id: 4,
-    title: "Sansani Express News",
-    des: "A modern digital news platform built for real-time regional news publishing, featuring responsive design, fast loading, and user-friendly content management.",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "/ui.apple.com",
-  },
-];
-
-export const testimonials = [
-  {
-    quote:
-      "Working with Raushan was a fantastic experience. His deep understanding of school and office management systems, combined with clean design and seamless functionality, made the entire process effortless. He not only delivered our website on time but also ensured every feature worked flawlessly. If you want a reliable developer who brings both technical skill and business understanding, Raushan is the one.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
-  },
-  {
-    quote:
-      "Raushan’s ability to turn complex requirements into easy-to-use platforms is impressive. From real estate to news portals, his versatility and dedication to quality helped us launch quickly and efficiently. The support post-launch has been top-notch too. Highly recommended for any web-based project!",
-    name: "Sonal Mehta",
-    title: "Project Manager at WebInSync",
-  },
-  {
-    quote:
-      "“We’re incredibly satisfied with the results. The Savants’ team was responsive, professional, and truly invested in our success.”",
-    name: "-Deepak",
-    title: "–Legalpalz",
-  },
-  {
-    quote:
-      "“The team’s dedication to our project was evident from start to finish. Their tailored solutions and proactive approach exceeded our expectations.”",
-    name: "Aman",
-    title: "-Cubicuss",
-  },
-  {
-    quote:
-      "“The SavantX provided us with an excellent software solution to manage our news online seamlessly. Their system is efficient, easy to use, and their support is always reliable. Highly recommended!”",
-    name: "Team ",
-    title: "-Sansani express news",
-  },
-];
-
-export const companies = [
-  {
-    id: 1,
-    name: "The SavantX",
-    img: "/cloud.svg",
-    nameImg: "/cloudName.svg",
-  },
-  {
-    id: 2,
-    name: "Sansani Express News",
-    img: "/app.svg",
-    nameImg: "/appName.svg",
-  },
-  {
-    id: 3,
-    name: "DriveX",
-    img: "/host.svg",
-    nameImg: "/hostName.svg",
-  },
-  {
-    id: 4,
-    name: "Cubicuss",
-    img: "/s.svg",
-    nameImg: "/streamName.svg",
-  },
-  {
-    id: 5,
-    name: "Legalpalz",
-    img: "/dock.svg",
-    nameImg: "/dockerName.svg",
+    title: "Student Portal System",
+    des: "A web-based student portal developed to manage student records, authentication, academic details, and role-based access with a clean and user-friendly interface.",
+    img: "/student-portal.png",
+    iconLists: ["/laravel.svg", "/php.png", "/mysql.svg"],
+    link: "https://github.com/rohit-joshi25",
   },
 ];
 
@@ -175,14 +109,14 @@ export const workExperience = [
   {
     id: 1,
     title: "Laravel Full-Stack Developer",
-    desc: "Developing and maintaining full-stack web applications using Laravel PHP for over 4 years, ensuring efficient back-end processes and user-friendly front-end interfaces. Also have 2 years of hands-on experience working with CRM systems, customizing and integrating CRM solutions to meet business needs.",
+    desc: "Developed and maintained full-stack web applications using Laravel and PHP, focusing on backend logic, database design, authentication, and building clean, user-friendly interfaces.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "MERN Developer - The SavantX",
-    desc: "Developed and deployed full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js). Designed interactive and responsive front-end interfaces, built robust REST APIs, and implemented secure authentication systems. Contributed to key projects focused on business automation and management systems.",
+    title: "Web Developer – Truckares (India Operations)",
+    desc: "Worked as part of the development team on the Truckares fleet management platform for India operations. Participated in building web application features, integrating APIs, and collaborating across frontend and backend modules to support logistics workflows.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
   },
@@ -195,8 +129,8 @@ export const workExperience = [
   },
   {
     id: 4,
-    title: "Engineer Trainee- Tata Technologies",
-    desc: "Accomplish my industrial Training in the Basics of Industrial Robotics, Product Design and development, Mechatronics and IoT, and Advanced Manufacturing conducted at CIIIT IKGPTU-Kapurthala",
+    title: "PHP & Laravel Developer (Project-Based)",
+    desc: "Worked on multiple academic and personal projects using PHP and Laravel, focusing on backend logic, database design, authentication, and building scalable web application features.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },
@@ -211,7 +145,7 @@ export const socialMedia = [
   {
     id: 2,
     img: "/twit.svg",
-    link: "https://twitter.com/",
+    link: "https://x.com/rohit_25In",
   },
   {
     id: 3,
@@ -219,4 +153,3 @@ export const socialMedia = [
     link: "https://www.linkedin.com/in/rohit-joshi-064ba926a/",
   },
 ];
-
