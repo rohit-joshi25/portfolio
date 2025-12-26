@@ -10,8 +10,6 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
-    "@react-three/drei": "^9.88.6",
-    "@react-three/fiber": "^8.18.0",
     "@tabler/icons-react": "^3.1.0",
     "@types/three": "^0.163.0",
     "class-variance-authority": "^0.7.0",
@@ -28,7 +26,6 @@
     "react-lottie": "^1.2.4",
     "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.152.2",
     "vercel": "^34.0.0"
   },
   "devDependencies": {
