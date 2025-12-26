@@ -1,8 +1,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-// import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
-
 const Approach = () => {
   return (
     <section className="w-full py-20">
@@ -17,28 +15,14 @@ const Approach = () => {
           icon={<AceternityIcon order="Phase 1" />}
           des="Together, we'll define the objectives of your website, identify the target audience, and outline the key features that will drive its success. Our discussions will cover essential elements such as site architecture, navigation, and content strategy, ensuring a solid foundation for the development process."
         >
-          <CanvasRevealEffect
-            animationSpeed={5.1}
-            // add these classed for the border rounded overflowing -> rounded-3xl overflow-hidden
-            containerClassName="bg-emerald-900 rounded-3xl overflow-hidden"
-          />
+         
         </Card>
         <Card
           title="Development & Progress Update"
           icon={<AceternityIcon order="Phase 2" />}
           des="Once the project plan is finalized, I immerse myself in the development process, focusing on delivering high-quality results. From the initial design phase to the final implementation, I ensure continuous communication and provide regular updates to keep you informed on every milestone and deliverable."
         >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            // change bg-black to bg-pink-900
-            containerClassName="bg-pink-900 rounded-3xl overflow-hidden"
-            colors={[
-              // change the colors of the
-              [255, 166, 158],
-              [221, 255, 247],
-            ]}
-            dotSize={2}
-          />
+          
           {/* Radial gradient for the cute fade */}
           {/* remove this one */}
           {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
@@ -48,11 +32,7 @@ const Approach = () => {
           icon={<AceternityIcon order="Phase 3" />}
           des="With the design finalized, it's time to bring your vision to life. I’ll start coding your website from scratch, ensuring it's responsive, fast, and fully functional. Once everything is tested and polished, we’ll launch it live for the world to see!"
         >
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-sky-600 rounded-3xl overflow-hidden"
-            colors={[[125, 211, 252]]}
-          />
+          
         </Card>
       </div>
     </section>
