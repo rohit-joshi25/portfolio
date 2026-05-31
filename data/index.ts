@@ -71,7 +71,7 @@ export const gridItems = [
 
 export const projects = [
   {
-    id: 2,
+    id: 1,
     title: "Truckares – Fleet Management Platform",
     des: "A fleet and logistics management platform developed using Laravel, Livewire, and APIs to manage transportation workflows, vehicle operations, and logistics processes for India-based teams.",
     img: "/truckares.png",
@@ -85,7 +85,7 @@ export const projects = [
     des: "An all-in-one digital solution for schools to manage students, staff, attendance, exams, and communication with ease and efficiency.",
     img: "/p2.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
+    link: "https://school.thesavantx.com/",
   },
   {
     id: 3,
