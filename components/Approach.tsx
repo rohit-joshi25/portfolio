@@ -12,29 +12,20 @@ const Approach = () => {
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         {/* add des prop */}
         <Card
-          title="Planning & Strategy"
+          title="Scope & Architecture"
           icon={<AceternityIcon order="Phase 1" />}
-          des="Together, we'll define the objectives of your website, identify the target audience, and outline the key features that will drive its success. Our discussions will cover essential elements such as site architecture, navigation, and content strategy, ensuring a solid foundation for the development process."
-        >
-         
-        </Card>
+          des="Clarify requirements, data models, and service boundaries. Decide what belongs in the API, database, and auth layer so the backend stays scalable and easy to maintain."
+        ></Card>
         <Card
-          title="Development & Progress Update"
+          title="Build & Iterate"
           icon={<AceternityIcon order="Phase 2" />}
-          des="Once the project plan is finalized, I immerse myself in the development process, focusing on delivering high-quality results. From the initial design phase to the final implementation, I ensure continuous communication and provide regular updates to keep you informed on every milestone and deliverable."
-        >
-          
-          {/* Radial gradient for the cute fade */}
-          {/* remove this one */}
-          {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
-        </Card>
+          des="Implement Laravel/PHP modules, secure APIs, and migrations with clear progress updates. Ship features in small, reviewable chunks instead of big risky drops."
+        ></Card>
         <Card
-          title="Development & Launch"
+          title="Harden & Deploy"
           icon={<AceternityIcon order="Phase 3" />}
-          des="With the design finalized, it's time to bring your vision to life. I’ll start coding your website from scratch, ensuring it's responsive, fast, and fully functional. Once everything is tested and polished, we’ll launch it live for the world to see!"
-        >
-          
-        </Card>
+          des="Validate auth, edge cases, and performance. Then deploy with Docker or your preferred stack, monitor, and keep the backend stable in production."
+        ></Card>
       </div>
     </section>
   );

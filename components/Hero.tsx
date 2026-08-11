@@ -43,7 +43,7 @@ const Hero = () => {
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Laravel-Focused Full Stack Developer
+            Backend Engineer · Laravel & PHP
           </p>
 
           {/**
@@ -52,13 +52,13 @@ const Hero = () => {
            *  change md:text-6xl, add more responsive code
            */}
           <TextGenerateEffect
-            words="Building Production-Ready Web Applications with Laravel & PHP"
+            words="Building Reliable Backend Systems with Laravel & PHP"
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
           />
 
           <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I’m Rohit Joshi — a BCA graduate building backend-driven systems
-            using Laravel, PHP & MySQL.
+            Hi, I&apos;m Rohit Joshi — a Backend Engineer focused on APIs,
+            databases, and production Laravel systems.
           </p>
 
           <a href="#about">

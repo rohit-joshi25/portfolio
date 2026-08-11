@@ -7,8 +7,9 @@ import { ThemeProvider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Rohit Joshi | Laravel Full Stack Developer",
-  description: " Full-Stack Power with Laravel & Next.js ",
+  title: "Rohit Joshi | Backend Engineer (Laravel & PHP)",
+  description:
+    "Backend Engineer specializing in Laravel, PHP, MySQL, APIs, and microservices — building reliable production systems.",
 };
 
 export default function RootLayout({

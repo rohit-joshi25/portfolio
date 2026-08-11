@@ -19,18 +19,18 @@ const Footer = () => {
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
+          Looking for a <span className="text-purple">Backend Engineer</span>{" "}
+          for your next product?
         </h1>
 
         <p className="text-white-200 md:mt-10 my-5 text-center">
-          Reach out to me today and let&apos;s discuss how I can help you
-          achieve your goals.
+          Open to Laravel / PHP backend roles and freelance work. Let&apos;s talk
+          about APIs, databases, and shipping reliable systems.
         </p>
 
         <a href="mailto:rohitjoshi2899@gmail.com">
           <MagicButton
-            title="Let's get in touch"
+            title="Email me"
             icon={<FaLocationArrow />}
             position="right"
           />
