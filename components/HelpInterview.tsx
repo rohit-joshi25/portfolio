@@ -11,23 +11,13 @@ import {
 const levels: Array<Level | "all"> = ["all", "basic", "intermediate", "advanced"];
 const kinds: Array<Kind | "all"> = ["all", "conceptual", "coding"];
 
-const levelStyle: Record<Level, string> = {
-  basic: "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
-  intermediate: "bg-amber-500/15 text-amber-300 border-amber-500/30",
-  advanced: "bg-rose-500/15 text-rose-300 border-rose-500/30",
-};
-
-const kindStyle: Record<Kind, string> = {
-  conceptual: "bg-sky-500/15 text-sky-300 border-sky-500/30",
-  coding: "bg-violet-500/15 text-violet-300 border-violet-500/30",
-};
-
 export default function HelpInterview() {
   const [search, setSearch] = useState("");
   const [level, setLevel] = useState<Level | "all">("all");
   const [kind, setKind] = useState<Kind | "all">("all");
   const [category, setCategory] = useState<string>("all");
   const [openId, setOpenId] = useState<string | null>(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -45,67 +35,64 @@ export default function HelpInterview() {
     });
   }, [search, level, kind, category]);
 
-  const counts = useMemo(() => {
-    const all = laravelInterviewQuestions.length;
-    const coding = laravelInterviewQuestions.filter((i) => i.kind === "coding").length;
-    const conceptual = all - coding;
-    return { all, coding, conceptual };
-  }, []);
+  const activeFilters =
+    level === "all" && kind === "all" && category === "all"
+      ? "All"
+      : [
+          level !== "all" ? level : null,
+          kind !== "all" ? (kind === "conceptual" ? "non-coding" : "coding") : null,
+          category !== "all" ? category : null,
+        ]
+          .filter(Boolean)
+          .join(" · ");
 
   return (
-    <div className="min-h-screen bg-black-100 text-white-100">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-        <header className="mb-8">
-          <p className="mb-2 text-xs uppercase tracking-[0.2em] text-purple">
-            Private prep · /help
-          </p>
-          <h1 className="text-3xl font-bold text-white sm:text-4xl">
-            Laravel interview sheet
+    <div className="min-h-screen bg-white text-zinc-900">
+      <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+        <header className="mb-6 flex items-end justify-between gap-4">
+          <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
+            Laravel interview
           </h1>
-          <p className="mt-3 max-w-2xl text-sm text-white-200 sm:text-base">
-            ~1 year Backend / Laravel role: basic → advanced, conceptual + coding.
-            Click a question to reveal the answer. Direct URL only — not linked from the
-            homepage.
+          <p className="text-sm text-zinc-500">
+            {filtered.length} / {laravelInterviewQuestions.length}
           </p>
-          <div className="mt-4 flex flex-wrap gap-3 text-xs text-white-200">
-            <span>{counts.all} questions</span>
-            <span>·</span>
-            <span>{counts.conceptual} conceptual</span>
-            <span>·</span>
-            <span>{counts.coding} coding</span>
-            <span>·</span>
-            <span>{filtered.length} showing</span>
-          </div>
         </header>
 
-        <div className="sticky top-0 z-20 -mx-4 mb-6 border-b border-white/10 bg-black-100/95 px-4 py-4 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-5">
+        <div className="sticky top-0 z-20 mb-5 border-b border-zinc-200 bg-white py-3">
           <input
             type="search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search questions, answers, code..."
-            className="mb-3 w-full rounded-xl border border-white/10 bg-black/40 px-4 py-2.5 text-sm text-white outline-none ring-purple/40 placeholder:text-white/40 focus:ring-2"
+            placeholder="Search"
+            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none placeholder:text-zinc-400 focus:border-blue-600"
           />
 
-          <div className="flex flex-col gap-3">
+          <button
+            type="button"
+            onClick={() => setFiltersOpen((open) => !open)}
+            className="mt-2 flex w-full items-center justify-between rounded-md border border-zinc-300 px-3 py-2 text-left text-sm md:hidden"
+            aria-expanded={filtersOpen}
+          >
+            <span>
+              <span className="font-medium">Filters</span>
+              <span className="text-zinc-500"> — {activeFilters}</span>
+            </span>
+            <span className={filtersOpen ? "rotate-180" : ""}>▾</span>
+          </button>
+
+          <div
+            className={`${filtersOpen ? "mt-3 flex" : "hidden"} flex-col gap-2 md:mt-3 md:flex`}
+          >
             <FilterRow label="Level">
               {levels.map((item) => (
-                <Chip
-                  key={item}
-                  active={level === item}
-                  onClick={() => setLevel(item)}
-                >
+                <Chip key={item} active={level === item} onClick={() => setLevel(item)}>
                   {item}
                 </Chip>
               ))}
             </FilterRow>
             <FilterRow label="Type">
               {kinds.map((item) => (
-                <Chip
-                  key={item}
-                  active={kind === item}
-                  onClick={() => setKind(item)}
-                >
+                <Chip key={item} active={kind === item} onClick={() => setKind(item)}>
                   {item === "conceptual" ? "non-coding" : item}
                 </Chip>
               ))}
@@ -124,55 +111,55 @@ export default function HelpInterview() {
                 </Chip>
               ))}
             </FilterRow>
+            {(level !== "all" || kind !== "all" || category !== "all") && (
+              <button
+                type="button"
+                onClick={() => {
+                  setLevel("all");
+                  setKind("all");
+                  setCategory("all");
+                }}
+                className="self-start text-sm text-blue-700 hover:underline md:hidden"
+              >
+                Reset
+              </button>
+            )}
           </div>
         </div>
 
-        <div className="space-y-3">
+        <div className="divide-y divide-zinc-200 border-t border-zinc-200">
           {filtered.length === 0 && (
-            <p className="rounded-2xl border border-white/10 p-8 text-center text-white-200">
-              No questions match that filter.
-            </p>
+            <p className="py-10 text-center text-sm text-zinc-500">No matches.</p>
           )}
 
           {filtered.map((item, index) => {
             const open = openId === item.id;
             return (
-              <article
-                key={item.id}
-                className="overflow-hidden rounded-2xl border border-white/10 bg-[rgb(4,7,29)]"
-              >
+              <article key={item.id} className="bg-white">
                 <button
                   type="button"
                   onClick={() => setOpenId(open ? null : item.id)}
-                  className="flex w-full items-start gap-3 px-4 py-4 text-left sm:px-5"
+                  className="flex w-full items-start gap-3 py-4 text-left"
                 >
-                  <span className="mt-0.5 w-8 shrink-0 text-sm font-semibold text-purple">
-                    {String(index + 1).padStart(2, "0")}
+                  <span className="w-8 shrink-0 pt-0.5 text-sm tabular-nums text-blue-700">
+                    {index + 1}
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="mb-2 flex flex-wrap gap-2">
-                      <Badge className={levelStyle[item.level]}>{item.level}</Badge>
-                      <Badge className={kindStyle[item.kind]}>
-                        {item.kind === "conceptual" ? "non-coding" : "coding"}
-                      </Badge>
-                      <Badge className="border-white/15 bg-white/5 text-white-200">
-                        {item.category}
-                      </Badge>
+                    <span className="mb-1 block text-xs text-zinc-500">
+                      {item.level} · {item.kind === "conceptual" ? "non-coding" : "coding"} · {item.category}
                     </span>
-                    <span className="block text-sm font-semibold text-white sm:text-base">
+                    <span className="block text-[15px] font-medium leading-snug text-zinc-900">
                       {item.q}
                     </span>
                   </span>
-                  <span className="mt-1 text-white-200">{open ? "−" : "+"}</span>
+                  <span className="text-zinc-400">{open ? "–" : "+"}</span>
                 </button>
 
                 {open && (
-                  <div className="border-t border-white/10 px-4 py-4 sm:px-5 sm:pl-[3.75rem]">
-                    <p className="whitespace-pre-wrap text-sm leading-relaxed text-white-200">
-                      {item.a}
-                    </p>
+                  <div className="pb-5 pl-0 sm:pl-11">
+                    <AnswerBody text={item.a} />
                     {item.code && (
-                      <pre className="mt-4 overflow-x-auto rounded-xl border border-white/10 bg-black/50 p-4 text-xs leading-relaxed text-blue-100">
+                      <pre className="mt-3 overflow-x-auto whitespace-pre-wrap break-words rounded-md border border-zinc-200 bg-zinc-50 p-3 text-[13px] leading-6 text-zinc-800">
                         <code>{item.code}</code>
                       </pre>
                     )}
@@ -195,10 +182,8 @@ function FilterRow({
   children: ReactNode;
 }) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="w-14 shrink-0 text-xs uppercase tracking-wide text-white/40">
-        {label}
-      </span>
+    <div className="flex flex-wrap items-center gap-1.5">
+      <span className="w-12 shrink-0 text-xs text-zinc-500">{label}</span>
       {children}
     </div>
   );
@@ -217,10 +202,10 @@ function Chip({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-full border px-3 py-1 text-xs capitalize transition ${
+      className={`rounded-md border px-2.5 py-1 text-xs capitalize ${
         active
-          ? "border-purple/60 bg-purple/20 text-white"
-          : "border-white/10 bg-white/5 text-white-200 hover:border-white/25"
+          ? "border-blue-700 bg-blue-700 text-white"
+          : "border-zinc-300 bg-white text-zinc-700 hover:border-blue-400"
       }`}
     >
       {children}
@@ -228,16 +213,69 @@ function Chip({
   );
 }
 
-function Badge({
-  className,
-  children,
-}: {
-  className: string;
-  children: ReactNode;
-}) {
+function AnswerBody({ text }: { text: string }) {
+  const blocks = parseAnswer(text);
+
   return (
-    <span className={`rounded-full border px-2 py-0.5 text-[10px] font-medium uppercase tracking-wide ${className}`}>
-      {children}
-    </span>
+    <div className="space-y-3 text-[15px] leading-7 text-zinc-800">
+      {blocks.map((block, i) => {
+        if (block.type === "p") {
+          return <p key={i}>{block.text}</p>;
+        }
+        return (
+          <ol key={i} className="space-y-3">
+            {block.items.map((item, j) => (
+              <li key={j} className="flex gap-3">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-700 text-xs font-semibold text-white">
+                  {j + 1}
+                </span>
+                <span className="min-w-0 flex-1 pt-px">{item}</span>
+              </li>
+            ))}
+          </ol>
+        );
+      })}
+    </div>
   );
+}
+
+function parseAnswer(text: string): Array<
+  { type: "p"; text: string } | { type: "steps"; items: string[] }
+> {
+  const stepCount = text.match(/\d+\)\s/g)?.length ?? 0;
+  const chunks = text
+    .split(/(?=\b(?:Interview tip|Fix|Reason|Remember|Note):)/i)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+  if (stepCount < 2) {
+    return chunks.map((chunk) => ({ type: "p", text: chunk }));
+  }
+
+  const blocks: Array<{ type: "p"; text: string } | { type: "steps"; items: string[] }> = [];
+
+  for (const chunk of chunks) {
+    if ((chunk.match(/\d+\)\s/g)?.length ?? 0) < 2) {
+      blocks.push({ type: "p", text: chunk });
+      continue;
+    }
+
+    const parts = chunk.split(/(?=\d+\)\s)/);
+    const intro = parts[0]?.trim();
+    if (intro && !/^\d+\)/.test(intro)) {
+      blocks.push({ type: "p", text: intro });
+    }
+
+    const items = parts
+      .map((p) => p.trim())
+      .filter((p) => /^\d+\)/.test(p))
+      .map((p) => p.replace(/^\d+\)\s*/, "").trim())
+      .filter(Boolean);
+
+    if (items.length) {
+      blocks.push({ type: "steps", items });
+    }
+  }
+
+  return blocks;
 }
