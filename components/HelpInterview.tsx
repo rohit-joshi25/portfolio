@@ -169,6 +169,15 @@ export default function HelpInterview() {
             );
           })}
         </div>
+
+        <div className="mt-10 border-t border-zinc-200 pt-6">
+          <a
+            href="/documents"
+            className="inline-flex w-full items-center justify-center rounded-md bg-blue-700 px-4 py-2.5 text-sm font-medium text-white hover:bg-blue-800 sm:w-auto"
+          >
+            Open documents
+          </a>
+        </div>
       </div>
     </div>
   );
